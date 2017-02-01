@@ -9,6 +9,8 @@ public class TrayImpl extends UnicastRemoteObject implements Tray {
 	/**
 	 * 
 	 */
+	private static final int COLUNM = 10;
+	private static final int ROW = 10;
 	private static final long serialVersionUID = 1L;
 	
 	private int column;
@@ -23,30 +25,39 @@ public class TrayImpl extends UnicastRemoteObject implements Tray {
 	}
 
 	@Override
-	public void positionShips(List<Ship> ships) throws RemoteException {
-		// TODO Auto-generated method stub
+	public void generateTray(int opc, int col, int row) throws RemoteException {
 		
-	}
-
-
-	@Override
-	public void attack(int column, int row) throws RemoteException {
-		// TODO Auto-generated method stub
+		int[][] tray = {{0},{0}};
 		
+		switch (opc) {
+		case 1:
+			for (int i = 0; i < COLUNM; i++) {
+				for (int j = 0; j < ROW; j++) {
+					tray[i][j] = 0;				//gera tabuleiro e inicializa com 0
+				}
+			}
+			
+			for (int i = 0; i < COLUNM; i++) {
+				for (int j = 0; j < ROW; j++) {
+					System.out.println("[" + j + "]");
+				}
+				System.out.println("[" + i + "]");
+			}
+			break;
+			
+		case 2:
+			for (int i = 0; i < col; i++) {
+				for (int j = 0; j < row; j++) {
+					tray[i][j] = 0;
+				}
+			}
+			break;
+		default:
+			System.out.println("Opção inválida!");
+			break;
+		}
 	}
 
 
-	@Override
-	public boolean attackEnemy(int column, int row) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-	@Override
-	public void updatePuntuation() throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

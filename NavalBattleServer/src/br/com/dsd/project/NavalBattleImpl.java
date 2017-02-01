@@ -15,7 +15,7 @@ public class NavalBattleImpl extends UnicastRemoteObject implements NavalBattleS
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Hashtable<Integer, Player> players = new Hashtable<>();
+	private Hashtable<Integer, Player> players = new Hashtable<Integer, Player>();
 	
 	private Random r = new Random();
 	
@@ -27,10 +27,10 @@ public class NavalBattleImpl extends UnicastRemoteObject implements NavalBattleS
 	@Override
 	public boolean conection(Player player, String name) throws RemoteException {
 
-		player.setIdPlayer(r.nextInt(100) + name);
+		player.setIdPlayer(r.nextInt(100));
 		
-		if (players.size() % 2 == 0) {
-			players.put(((PlayerImpl) player).getId(), player);
+		if (players.size() < 2) {
+			players.put(player.getIdPlayer(), player);
 			send(player, "Aguardando oponente...");
 			
 			return true;

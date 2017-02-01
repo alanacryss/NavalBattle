@@ -28,6 +28,12 @@ public class PlayerImpl extends UnicastRemoteObject implements Player {
 	}
 	
 	@Override
+	public int getIdPlayer() throws RemoteException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
 	public void attack(int column, int row) throws RemoteException {
 		// TODO Auto-generated method stub
 		
@@ -53,6 +59,12 @@ public class PlayerImpl extends UnicastRemoteObject implements Player {
 		
 	}
 	
+	@Override
+	public void generateTray(int col, int row) throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -65,5 +77,7 @@ public class PlayerImpl extends UnicastRemoteObject implements Player {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
 	
 }
