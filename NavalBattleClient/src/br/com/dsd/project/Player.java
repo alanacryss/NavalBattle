@@ -11,6 +11,7 @@ public interface Player extends Remote {
 	public boolean attackEnemy(int column, int row) throws RemoteException;
 	public void updatePuntuation() throws RemoteException;
 	public void receiveMsg(String msg) throws RemoteException;
-	public void setIdPlayer(String id) throws RemoteException;
-	public String getIdPlayer() throws RemoteException;
+	public void setIdPlayer(int id) throws RemoteException;
+	public int getIdPlayer() throws RemoteException;
+	public void imlementsTray(int opc, int col, int row) throws RemoteException;
 }
