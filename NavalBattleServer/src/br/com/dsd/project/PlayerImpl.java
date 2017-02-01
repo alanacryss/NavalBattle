@@ -17,20 +17,6 @@ public class PlayerImpl extends UnicastRemoteObject implements Player {
 	
 	protected PlayerImpl() throws RemoteException {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void setIdPlayer(int id) throws RemoteException {
-		
-		setId(id);
-		
-	}
-	
-	@Override
-	public int getIdPlayer() throws RemoteException {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 	
 	@Override
@@ -64,20 +50,4 @@ public class PlayerImpl extends UnicastRemoteObject implements Player {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-	
 }
