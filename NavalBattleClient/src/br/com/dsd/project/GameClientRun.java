@@ -25,16 +25,11 @@ public class GameClientRun {
 			
 			battleServer.conection(player, name);
 			
-			int opc, col, row;
+			int opc, col = 0, row = 0;
 			System.out.println("Opçao: ");
 			opc = read.nextInt();
 			
-			System.out.println("colunas: ");
-			col = read.nextInt();
-			
-			System.out.println("linhas: ");
-			row = read.nextInt();
-			((PlayerImpl) player).imlementsTray(opc, col, row);
+			((PlayerImpl) player).implementsTray(opc, col, row);
 			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();

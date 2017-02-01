@@ -13,5 +13,5 @@ public interface Player extends Remote {
 	public void receiveMsg(String msg) throws RemoteException;
 	public void setIdPlayer(int id) throws RemoteException;
 	public int getIdPlayer() throws RemoteException;
-	public void imlementsTray(int opc, int col, int row) throws RemoteException;
+	public void implementsTray(int opc, int col, int row) throws RemoteException;
 }

@@ -3,12 +3,14 @@ package br.com.dsd.project;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
+import java.util.Scanner;
 
 public class TrayImpl extends UnicastRemoteObject implements Tray {
 
 	/**
 	 * 
 	 */
+	Scanner read = new Scanner(System.in);
 	private static final int COLUNM = 10;
 	private static final int ROW = 10;
 	private static final long serialVersionUID = 1L;
@@ -32,9 +34,8 @@ public class TrayImpl extends UnicastRemoteObject implements Tray {
 		switch (opc) {
 		case 1:
 			for (int i = 0; i < COLUNM; i++) {
-				for (int j = 0; j < ROW; j++) {
-					tray[i][j] = 0;				//gera tabuleiro e inicializa com 0
-				}
+				for (int j = 0; j < ROW; j++)
+					tray[i][j] = -1;				//gera tabuleiro e inicializa com 0
 			}
 			
 			for (int i = 0; i < COLUNM; i++) {
@@ -46,6 +47,12 @@ public class TrayImpl extends UnicastRemoteObject implements Tray {
 			break;
 			
 		case 2:
+			System.out.println("Digite a quantidade de colunas: ");
+			col = read.nextInt();
+			
+			System.out.println("Digite a quantidade de linhas: ");
+			row = read.nextInt();
+			
 			for (int i = 0; i < col; i++) {
 				for (int j = 0; j < row; j++) {
 					tray[i][j] = 0;
