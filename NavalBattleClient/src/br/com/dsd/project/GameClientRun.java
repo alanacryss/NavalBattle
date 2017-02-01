@@ -6,6 +6,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.Scanner;
 
+import br.com.dsd.dominio.Gamer;
+
 public class GameClientRun {
 	
 	public static Scanner read = new Scanner(System.in);
@@ -15,21 +17,21 @@ public class GameClientRun {
 		try {
 			NavalBattleServer battleServer = (NavalBattleServer) Naming.lookup("//localhost/nb");
 			
-			Player player = new PlayerImpl();
+			Gamer g = new Gamer();
+			g.setPlayer(new PlayerImpl());
 			
 			String name;
 			System.out.println("Digite seu nome: ");
-			name = read.nextLine();
-			
-			((PlayerImpl) player).setName(name);
-			
-			battleServer.conection(player, name);
-			
+
+			name = read.nextLine();			
+			g.setName(name);
+									
 			int opc, col = 0, row = 0;
 			System.out.println("Opçao: ");
 			opc = read.nextInt();
 			
-			((PlayerImpl) player).implementsTray(opc, col, row);
+			battleServer.conection(g.getPlayer(), g);
+			//((PlayerImpl) player).imlementsTray(opc, col, row);
 			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
