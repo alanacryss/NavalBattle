@@ -31,7 +31,8 @@ public class GameClientRun {
 			opc = read.nextInt();
 			
 			battleServer.conection(g.getPlayer(), g);
-			//((PlayerImpl) player).imlementsTray(opc, col, row);
+			//((Player) g).implementsTray(opc, col, row);
+			g.getPlayer().implementsTray(opc, col, row, null);
 			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();

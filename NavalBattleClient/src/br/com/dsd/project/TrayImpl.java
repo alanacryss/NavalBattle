@@ -27,15 +27,15 @@ public class TrayImpl extends UnicastRemoteObject implements Tray {
 	}
 
 	@Override
-	public void generateTray(int opc, int col, int row) throws RemoteException {
+	public void generateTray(int opc, int col, int row, int[][] tray) throws RemoteException {
 		
-		int[][] tray = {{0},{0}};
+		//int[][] tray = {{0},{0}};
 		
 		switch (opc) {
 		case 1:
 			for (int i = 0; i < COLUNM; i++) {
 				for (int j = 0; j < ROW; j++)
-					tray[i][j] = -1;				//gera tabuleiro e inicializa com 0
+					tray[i][j] = -1;				//gera tabuleiro e inicializa com -1
 			}
 			
 			for (int i = 0; i < COLUNM; i++) {
@@ -55,9 +55,12 @@ public class TrayImpl extends UnicastRemoteObject implements Tray {
 			
 			for (int i = 0; i < col; i++) {
 				for (int j = 0; j < row; j++) {
-					tray[i][j] = 0;
+					tray[i][j] = -1;
 				}
 			}
+			
+			printTray(col, row, tray);
+			
 			break;
 		default:
 			System.out.println("Opção inválida!");
@@ -65,6 +68,20 @@ public class TrayImpl extends UnicastRemoteObject implements Tray {
 		}
 	}
 
-
+	@Override
+	public void printTray(int col, int row, int[][] tray) throws RemoteException {
+		
+		for (int i = 0; i < col; i++) {
+			for (int j = 0; j < row; j++) {
+				if (tray[i][j] == -1) {
+					System.out.println("\t" + "~");
+				} else if (tray[i][j] == 0) {
+					System.out.println("\t" + "*");
+				} else
+					System.out.println("\t" + "X");
+			}
+			System.out.println();
+		}
+	}
 
 }

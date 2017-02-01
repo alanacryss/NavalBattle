@@ -46,7 +46,7 @@ public class PlayerImpl extends UnicastRemoteObject implements Player {
 	}
 	
 	@Override
-	public void implementsTray(int opc, int col, int row) throws RemoteException {
+	public void implementsTray(int opc, int col, int row, int[][] tray) throws RemoteException {
 		
 	}
 }
