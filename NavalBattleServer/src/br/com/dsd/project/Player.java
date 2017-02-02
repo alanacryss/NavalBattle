@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 import br.com.dsd.dominio.Gamer;
+import br.com.dsd.dominio.Tabuleiro;
 
 public interface Player extends Remote {
 
@@ -15,4 +16,5 @@ public interface Player extends Remote {
 	public void receiveMsg(String msg) throws RemoteException;
 	public void implementsTray(int opc, int col, int row, int[][] tray) throws RemoteException;
 	public void showTray(Gamer g) throws RemoteException;
+	public void onGetTab(Gamer g) throws RemoteException;
 }

@@ -5,6 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
 import br.com.dsd.dominio.Gamer;
+import br.com.dsd.dominio.Tabuleiro;
 
 
 public class PlayerImpl extends UnicastRemoteObject implements Player {
@@ -53,5 +54,9 @@ public class PlayerImpl extends UnicastRemoteObject implements Player {
 	
 	public void showTray(Gamer g) throws RemoteException{
 		g.getTab().mostrarTabuleiro();
+	}
+	@Override
+	public void onGetTab(Gamer g) throws RemoteException {
+		
 	}
 }

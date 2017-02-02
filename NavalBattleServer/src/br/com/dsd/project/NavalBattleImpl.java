@@ -34,7 +34,7 @@ public class NavalBattleImpl extends UnicastRemoteObject implements NavalBattleS
 	}
 	
 	@Override
-	public boolean conection(Player player, Gamer g) throws RemoteException {
+	public Gamer conection(Player player, Gamer g) throws RemoteException {
 
 		g.setId(r.nextInt(100));
 		
@@ -43,15 +43,11 @@ public class NavalBattleImpl extends UnicastRemoteObject implements NavalBattleS
 			send(player, "Aguardando oponente...");
 			onLogs(g.getName() + "se conectou");
 			montarTab(g);
-			return true;
+			return g;
 		}
 		
 		players.put(g.getId(), g);
-		/*Enumeration<Gamer> e = players.elements();*/
 		List<Gamer> gma = onGetGamer();
-		/*while(e.hasMoreElements()){
-			gma.add(e.nextElement());
-		}*/
 		
 		send(player, "O seu oponente é: " + gma.get(0).getName());
 		send(gma.get(0).getPlayer(), "Oponente conectado com o nome: " + gma.get(gma.size() - 1).getName());
@@ -59,7 +55,7 @@ public class NavalBattleImpl extends UnicastRemoteObject implements NavalBattleS
 		onLogs(g.getName() + "se conectou");
 		
 		showTray();
-		return true;
+		return g;
 	}
 	
 	private List onGetGamer(){
@@ -99,9 +95,13 @@ public class NavalBattleImpl extends UnicastRemoteObject implements NavalBattleS
 	}
 
 	@Override
-	public void receiveTray(Tray tray) throws RemoteException {
-		// TODO Auto-generated method stub
-		
+	public Gamer receiveTray(List<Ship> tray, Gamer g) throws RemoteException {
+		System.out.println(players.contains(g));
+		g.getTab().setShips(tray);
+		g.getTab().onShips();
+		//g.getTab().mostrarTabuleiro();
+		return g;
+				
 	}
 
 	@Override

@@ -29,7 +29,7 @@ public class GameClientRun {
 			name = read.nextLine();			
 			g.setName(name);
 			
-			battleServer.conection(g.getPlayer(), g);
+			g = battleServer.conection(g.getPlayer(), g);
 			
 			List<Ship> s = new ArrayList<>();
 			int sh = 0;
@@ -44,7 +44,8 @@ public class GameClientRun {
 				w(sh, s);				
 			}
 			
-			g.getPlayer().showTray(g);
+			g = battleServer.receiveTray(s, g);
+			g.getTab().mostrarTabuleiro();
 			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -73,6 +74,79 @@ public class GameClientRun {
 				}
 			}
 			ship.setDimension(d);
+			ships.add(ship);
+			break;
+		case 2:
+			Ship ship1 = new Ship();
+			ship1.setName("Submarino");
+			System.out.println("Informe as dimensões");
+			int [] d1 = new int[2];
+			
+			for(int i = 0; i < 2; i++){
+				if(i % 2 == 0){
+					System.out.println("X: ");
+					d1[i] = read.nextInt();
+				}else{
+					System.out.println("Y: ");
+					d1[i] = read.nextInt();
+				}
+			}
+			ship1.setDimension(d1);
+			ships.add(ship1);
+			break;
+		case 3:
+			Ship ship2 = new Ship();
+			ship2.setName("HridroAviões");
+			System.out.println("Informe as dimensões");
+			int [] d2 = new int[6];
+			
+			for(int i = 0; i < 6; i++){
+				if(i % 2 == 0){
+					System.out.println("X: ");
+					d2[i] = read.nextInt();
+				}else{
+					System.out.println("Y: ");
+					d2[i] = read.nextInt();
+				}
+			}
+			ship2.setDimension(d2);
+			ships.add(ship2);
+			break;
+		case 4:
+			Ship ship3 = new Ship();
+			ship3.setName("HridroAviões");
+			System.out.println("Informe as dimensões");
+			int [] d3 = new int[8];
+			
+			for(int i = 0; i < 8; i++){
+				if(i % 2 == 0){
+					System.out.println("X: ");
+					d3[i] = read.nextInt();
+				}else{
+					System.out.println("Y: ");
+					d3[i] = read.nextInt();
+				}
+			}
+			ship3.setDimension(d3);
+			ships.add(ship3);
+			break;
+		case 5:
+			Ship ship4 = new Ship();
+			ship4.setName("HridroAviões");
+			System.out.println("Informe as dimensões");
+			int [] d4 = new int[8];
+			
+			for(int i = 0; i < 6; i++){
+				if(i % 2 == 0){
+					System.out.println("X: ");
+					d4[i] = read.nextInt();
+				}else{
+					System.out.println("Y: ");
+					d4[i] = read.nextInt();
+				}
+			}
+			ship4.setDimension(d4);
+			ships.add(ship4);
 			break;
 
 		default:
