@@ -7,7 +7,6 @@ public class Ship implements Serializable {
 	private String name;
 	private int[] dimension;
 	
-	
 	public String getName() {
 		return name;
 	}

@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
+import br.com.dsd.dominio.Gamer;
+
 public class PlayerImpl extends UnicastRemoteObject implements Player {
 
 	/**
@@ -47,6 +49,12 @@ public class PlayerImpl extends UnicastRemoteObject implements Player {
 	
 	@Override
 	public void implementsTray(int opc, int col, int row, int[][] tray) throws RemoteException {
+		
+	}
+	
+	@Override
+	public void showTray(Gamer g) throws RemoteException {
+		// TODO Auto-generated method stub
 		
 	}
 }
